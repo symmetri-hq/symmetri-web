@@ -42,6 +42,7 @@ class WebSignupPayload(BaseModel):
     country_of_residence: str
     country_destiny: str
     address: str | None = None
+    phone: str | None = None
 
     @validator("dob")
     def validate_dob(cls, v):
@@ -87,16 +88,16 @@ def web_signup(payload: WebSignupPayload):
         insert_sql = text("""
             INSERT INTO users (
                 id, symmetri_id, email, password_hash,
-                first_name, last_name, dob,
-                country, address,
-                kyc_status, user_type,
+                first_name, last_name,
+                country, phone_number,
+                kyc_status, user_type, mfa_enabled,
                 created_at
             )
             VALUES (
                 :id, :symmetri_id, :email, :password_hash,
-                :first_name, :last_name, :dob,
-                :country, :address,
-                :kyc_status, :user_type,
+                :first_name, :last_name,
+                :country, :phone_number,
+                :kyc_status, :user_type, :mfa_enabled,
                 :created_at
             )
         """)
@@ -108,9 +109,9 @@ def web_signup(payload: WebSignupPayload):
             "password_hash": password_hash,
             "first_name": payload.first_name,
             "last_name": payload.last_name,
-            "dob": payload.dob,
             "country": payload.country_of_residence,
-            "address": payload.address,
+            "phone_number": payload.phone if hasattr(payload, 'phone') else None,
+            "mfa_enabled": True,
             # GEMINI.md §2.1 — new users start at EMPTY, not PENDING
             "kyc_status": "EMPTY",
             "user_type": "PEER",
