@@ -88,14 +88,14 @@ def web_signup(payload: WebSignupPayload):
             INSERT INTO users (
                 id, symmetri_id, email, password_hash,
                 first_name, last_name, dob,
-                country_of_residence, country_destiny, address,
+                country, address,
                 kyc_status, user_type,
                 created_at
             )
             VALUES (
                 :id, :symmetri_id, :email, :password_hash,
                 :first_name, :last_name, :dob,
-                :country_of_residence, :country_destiny, :address,
+                :country, :address,
                 :kyc_status, :user_type,
                 :created_at
             )
@@ -109,8 +109,7 @@ def web_signup(payload: WebSignupPayload):
             "first_name": payload.first_name,
             "last_name": payload.last_name,
             "dob": payload.dob,
-            "country_of_residence": payload.country_of_residence,
-            "country_destiny": payload.country_destiny,
+            "country": payload.country_of_residence,
             "address": payload.address,
             # GEMINI.md §2.1 — new users start at EMPTY, not PENDING
             "kyc_status": "EMPTY",
@@ -123,8 +122,15 @@ def web_signup(payload: WebSignupPayload):
             status_code=status.HTTP_201_CREATED,
             content={
                 "status": "ok",
-                "symmetri_id": symmetri_id,
-                "message": "User created successfully"
+                "message": "User created successfully",
+                "user": {
+                    "id": user_id,
+                    "email": payload.email,
+                    "first_name": payload.first_name,
+                    "last_name": payload.last_name,
+                    "symmetri_id": symmetri_id,
+                    "country": payload.country_of_residence
+                }
             }
         )
     except Exception as e:
