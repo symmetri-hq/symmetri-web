@@ -8,3 +8,8 @@
 
 ## Security & Infrastructure
 - [ ] **Supabase Native Test OTP**: Implement Supabase's native Test OTP feature to replace the temporary environment-variable based MFA demo bypass. Connect to a real SMS/WhatsApp provider (like Twilio) for full production rollout.
+
+## Post-Deployment Epics (High Priority)
+- [ ] **Fee Orchestrator Logic**: Build out the transaction flow focusing on the fee orchestrator logic and dynamic fee calculation mechanics for cross-border transfers. Ensure this aligns with our non-custodial architecture.
+- [ ] **Retail Voucher Endpoints**: Map and implement the endpoints for the digital redeemable retail vouchers. This will support the physical barcode scanning integrations for our supermarket partners.
+- [ ] **Administrative Integrity Dashboard**: Connect the administrative dashboard to monitor the live FX rate consensus (OANDA, Chainlink, Fixer.io) and track production vitals and audit logs.
