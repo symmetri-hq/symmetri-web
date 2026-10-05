@@ -24,17 +24,19 @@ def session(engine, tables):
     yield session
     session.close()
 
+import uuid
+
 def seed_daily_rates(session):
     session.add_all([
         DailyRate(
-            id="usd_mxn_20250929",
+            id=uuid.uuid4(),
             base_currency="USD",
             target_currency="MXN",
             rate=17.45,
             date=date(2025, 9, 29)
         ),
         DailyRate(
-            id="usd_mxn_20250928",
+            id=uuid.uuid4(),
             base_currency="USD",
             target_currency="MXN",
             rate=17.42,

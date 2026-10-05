@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 // Force restart 2
 module.exports = {
+  distDir: 'dist',
   images: {
     unoptimized: true,
   },
