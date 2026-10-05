@@ -1,6 +1,6 @@
 // src/middleware.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { decrypt } from './lib/session';
+import { decrypt } from './lib/session-edge';
 
 // 1. DEFINE ZONES
 const PROTECTED_ROUTES = ['/dashboard', '/profile', '/settings', '/wallet'];

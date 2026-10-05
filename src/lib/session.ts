@@ -21,14 +21,8 @@ export async function encrypt(payload: TruequeSession) {
 }
 
 // 3. DECRYPT
-export async function decrypt(input: string): Promise<TruequeSession | null> {
-  try {
-    const { payload } = await jwtVerify(input, key, { algorithms: ['HS256'] });
-    return payload as unknown as TruequeSession;
-  } catch (error) {
-    return null;
-  }
-}
+export { decrypt } from './session-edge';
+
 
 // 4. COOKIE HELPERS
 export function setSessionCookie(res: NextApiResponse, token: string) {
