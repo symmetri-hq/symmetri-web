@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.database import engine, Base
@@ -19,7 +20,13 @@ app = FastAPI(title="Symmetri API")
 # --- MIDDLEWARE ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://192.168.12.253:3000", "https://symmetri.org", "https://www.symmetri.org"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://192.168.12.253:3000",
+        "https://symmetri.org",
+        "https://www.symmetri.org",
+        os.getenv("CORS_ALLOWED_ORIGIN", "https://symmetri.org")
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
