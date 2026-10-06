@@ -163,29 +163,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* ── Retailer Networks ──────────────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 bg-white border-y border-gray-200">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gray-500 text-sm font-bold uppercase tracking-widest mb-8">Current Network</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[
-              { name: 'Mexico',             count: '20+ stores', flag: '🇲🇽' },
-              { name: 'Colombia',           count: '6+ stores',  flag: '🇨🇴' },
-              { name: 'Guatemala',          count: '4+ stores',  flag: '🇬🇹' },
-              { name: 'Dominican Republic', count: '3+ stores',  flag: '🇩🇴' },
-            ].map((market) => (
-              <div key={market.name} className="bg-background border border-gray-200 shadow-sm rounded-xl p-5 text-center">
-                <div className="text-3xl mb-2">{market.flag}</div>
-                <div className="text-primary font-semibold text-sm">{market.name}</div>
-                <div className="text-secondary text-xs mt-1">{market.count}</div>
-              </div>
-            ))}
-          </div>
-          <p className="text-secondary text-sm mt-8">
-            Spain and Portugal corridors launching Q3 2026. Contact us to be a launch partner.
-          </p>
-        </div>
-      </section>
+
 
       {/* ── How the Integration Works ──────────────────────────────────── */}
       <section className="py-24 px-4 sm:px-6">

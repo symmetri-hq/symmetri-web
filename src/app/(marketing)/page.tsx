@@ -85,11 +85,11 @@ const getSteps = (originMarket: string) => [
   },
 ];
 
-// ── Why Trust Symmetri ────────────────────────────────────────────────────────
-const TRUST_PILLARS = [
+// ── Core Architecture ────────────────────────────────────────────────────────
+const ARCHITECTURE_PILLARS = [
   {
-    title: 'Real exchange rates. Always.',
-    desc: 'We use the live, independent mid-market rate. We take zero cut from the exchange. What you see is what your family gets.',
+    title: 'Real-Time FX',
+    desc: 'Automated, high-fidelity rate feeds integrating OANDA, Chainlink, and Fixer.io.',
     color: 'emerald',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -98,8 +98,8 @@ const TRUST_PILLARS = [
     ),
   },
   {
-    title: 'Zero fees for your family.',
-    desc: 'Your family pays absolutely nothing. They shop for what they need, show the code at checkout, and walk out. The cost is only on your end — and it\'s completely transparent.',
+    title: 'Synthetic Liquidity & Vouchers',
+    desc: 'Closed-loop, retailer-anchored voucher issuance settling at the point of retail sale.',
     color: 'amber',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -108,18 +108,8 @@ const TRUST_PILLARS = [
     ),
   },
   {
-    title: 'No app. No bank account.',
-    desc: 'Your family only needs their phone number. You send them a text or WhatsApp message. That\'s it. No smartphone app or bank account required.',
-    color: 'blue',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18h3" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Your money never passes through us.',
-    desc: 'Symmetri is a technology platform, not a bank. We orchestrate the technological currency swap. We never hold, store, or custody your funds at any moment; the secure, licensed banking processor handles the transaction securely.',
+    title: 'Enterprise-Grade Security',
+    desc: 'Full-stack data integrity featuring AES-256-GCM encrypted ledgers and blind indexing.',
     color: 'indigo',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -180,27 +170,28 @@ export default function HomePage() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up-3">
-            <Link
-              href="/signin"
+            <a
+              href="mailto:partners@symmetri.org"
               id="hero-cta-primary"
               className="px-8 py-4 bg-brand hover:bg-blue-600 active:bg-blue-700 text-white font-bold text-base rounded-xl shadow-lg shadow-brand/20 transition-all duration-300 w-full sm:w-auto"
             >
-              Send Your First Voucher →
-            </Link>
+              Request API Access →
+            </a>
             <a
-              href="#how-it-works"
+              href="#architecture"
               id="hero-cta-secondary"
               className="px-8 py-4 bg-white border border-gray-200 text-secondary hover:text-primary hover:border-gray-300 shadow-sm font-semibold text-base rounded-xl transition-all duration-300 w-full sm:w-auto"
             >
-              See How It Works
+              Explore the Tech
             </a>
           </div>
 
           {/* Trust micro-signals */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-10 animate-fade-in-up-4">
             {[
-              '✓ Zero hidden fees',
-              '✓ Real exchange rate',
+              '✓ Zero cost for Sender',
+              '✓ No Hidden Fees',
+              '✓ Real-time FX',
               '✓ No smartphone needed at pickup',
             ].map((t) => (
               <span key={t} className="text-gray-500 text-sm font-medium">{t}</span>
@@ -326,21 +317,21 @@ export default function HomePage() {
       </section>
       )}
 
-      {/* ══ WHY TRUST SYMMETRI ════════════════════════════════════════════════ */}
-      <section className="py-28 px-4 sm:px-6">
+      {/* ══ CORE ARCHITECTURE ════════════════════════════════════════════════ */}
+      <section id="architecture" className="py-28 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-brand text-sm font-bold uppercase tracking-widest mb-3">Built for Trust</p>
+            <p className="text-brand text-sm font-bold uppercase tracking-widest mb-3">Core Architecture</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-4">
-              Why thousands of families<br className="hidden sm:block" /> trust Symmetri.
+              Enterprise-grade infrastructure<br className="hidden sm:block" /> for scale.
             </h2>
             <p className="text-secondary text-base max-w-lg mx-auto">
-              Every decision we made was for the person sending — not for us.
+              Built on secure, non-custodial software rails to ensure absolute integrity and compliance.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {TRUST_PILLARS.map((pillar) => {
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {ARCHITECTURE_PILLARS.map((pillar) => {
               const c = colorMap[pillar.color];
               return (
                 <div
@@ -368,7 +359,6 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <div className="bg-white rounded-3xl border border-gray-200 shadow-md p-12 sm:p-16">
-            <div className="text-4xl mb-5 animate-float">💪</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-primary mb-4">
               Ready to protect your<br />hard-earned money?
             </h2>

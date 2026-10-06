@@ -59,12 +59,12 @@ export default function SiteNav() {
           </div>
 
           {/* Primary CTA (Sign In) */}
-          <Link
-            href="/signin"
+          <a
+            href="mailto:partners@symmetri.org"
             className="hidden sm:block px-4 py-2 bg-brand hover:bg-blue-600 active:bg-blue-700 text-white text-sm font-bold rounded-lg transition-colors duration-200 shadow-sm whitespace-nowrap"
           >
-            Sign In
-          </Link>
+            Partner Login
+          </a>
 
           {/* Mobile hamburger */}
           <button
@@ -118,13 +118,13 @@ export default function SiteNav() {
               </div>
             </div>
             <div className="flex gap-3">
-              <Link
-                href="/signin"
+              <a
+                href="mailto:partners@symmetri.org"
                 onClick={() => setMobileOpen(false)}
                 className="flex-1 text-center py-2.5 text-secondary border border-gray-200 rounded-lg text-sm font-medium hover:border-gray-300 transition-colors"
               >
-                Sign In
-              </Link>
+                Partner Login
+              </a>
               <Link
                 href="/signin"
                 onClick={() => setMobileOpen(false)}
